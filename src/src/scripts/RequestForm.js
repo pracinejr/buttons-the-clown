@@ -1,4 +1,4 @@
-import { sendServiceRequest } from "./dataAccess.js";
+import { sendServiceRequests } from "./dataAccess.js";
 
 const mainContainer = document.querySelector("#container");
 
@@ -17,7 +17,7 @@ mainContainer.addEventListener("click", (clickEvent) => {
       "input[name='partyDate']"
     ).value;
     const userPartyLength = document.querySelector(
-      "input[name='partyPartyLength']"
+      "input[name='partyLength']"
     ).value;
 
     // Make an object out of the user input
@@ -31,11 +31,11 @@ mainContainer.addEventListener("click", (clickEvent) => {
     };
 
     // Send the data to the API for permanent storage
-    sendServiceRequest(dataToSendToAPI);
+    sendServiceRequests(dataToSendToAPI);
   }
 });
 
-export const ServiceForm = () => {
+export const RequestForm = () => {
   let html = `
         <div class="field">
             <label class="label" for="partyName">Parent Name</label>
@@ -54,15 +54,15 @@ export const ServiceForm = () => {
             <input type="text" name="partyAddress" class="input" />
         </div>
         <div class="field">
-            <label class="label" for="Party Date">Date of the Party</label>
+            <label class="label" for="partyDate">Date of the Party</label>
             <input type="date" name="partyDate" class="input" />
         </div>
         <div class="field">
-        <label class="label" for="userPartyLength">Length of Party in hrs</label>
-        <input type="number" name="userPartyLength" class="input" />
+          <label class="label" for="partyLength">Length of Party in hrs</label>
+          <input type="number" name="partyLength" class="input" />
         </div>
 
-        <button class="button" id="submitRequest">Submit Request</button>
+        <button class="button" id="submitServiceRequest">Submit Request</button>
     `;
 
   return html;
