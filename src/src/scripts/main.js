@@ -1,4 +1,4 @@
-import { fetchRequests } from "./dataAccess.js";
+import { fetchServiceRequests } from "./dataAccess.js";
 import { ButtonsTheClown } from "./ButtonsTheClown.js";
 
 const mainContainer = document.querySelector("#container");
@@ -8,7 +8,7 @@ mainContainer.addEventListener("stateChanged", (customEvent) => {
 });
 
 const render = () => {
-  fetchRequests().then(() => {
+  fetchServiceRequests().then(() => {
     mainContainer.innerHTML = ButtonsTheClown();
   });
 };
